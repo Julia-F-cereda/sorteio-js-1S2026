@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorteador de numeros aleatorios</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <script defer src="./numeros.js"></script> -->
+    <script defer src="./numeros.js"></script>
 </head>
 <body class="sorteador">
     
@@ -31,6 +31,10 @@
             <span class="area__numero">0</span>
         </section>
 
+        <section class="mensagem">
+            <span class="area__mensagem"></span>
+        </section>
+        
         <section class="sorteador__historico historico">
             <h2 class="historico__title">Historico</h2>
             <ul class="historico__lista"></ul>
@@ -42,10 +46,11 @@
     </footer>
 
     <script>
+
         const sorteio = document.querySelector('.area__button');
 
         sorteio.addEventListener('submit', () =>{
-            alert('oi ivo');
+            event.preventDefault();
         });
         
     </script>

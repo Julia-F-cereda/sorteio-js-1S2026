@@ -1,6 +1,4 @@
 
-
-
 const vMin = document.querySelector('.intervalo__slider--min');
 const vMax = document.querySelector('.intervalo__slider--max');
 const botaoSorteio = document.querySelector('.area__button');
@@ -19,15 +17,31 @@ const atualizarSlider = () =>{
     const max= Number(vMax.value);
     console.log(min, max);
 
-    
-
     //por o valor la no slider
     document.querySelector('.intervalo__valor--min').textContent = min;
     document.querySelector('.intervalo__valor--max').textContent = max;
 };
 
-vMin.addEventListener('input', atualizarSlider);
-vMax.addEventListener('input', atualizarSlider);
+const validarIntervalo = () =>{
+    if (vMin.value > vMax.value){
+        vMax.value >= vMin.value;
+        //o valor maximo tem que igualar e nao pode andar mais que o minimo
+    } if (vMin.value == vMax.value){
+        //o valor minimo nao pode mais mudar
+        // vMin == 
+        // atualizarSlider()
+    };
+
+    document.querySelector('.intervalo__valor--min').textContent = vMin;
+    document.querySelector('.intervalo__valor--max').textContent = vMax;
+
+
+};
+// vMin.addEventListener('input', atualizarSlider);
+// vMax.addEventListener('input', atualizarSlider);
+
+vMin.addEventListener('input', validarIntervalo);
+vMax.addEventListener('input', validarIntervalo);
 atualizarSlider();
 
 const numeroAleatorio = (min, max) => {
@@ -73,7 +87,7 @@ botaoSorteio.addEventListener('click', () => {
     const max=Number(vMax.value);
     //se o valor minimo for maior que o maximo
     if (min>max) {
-        mensagem.textContent = 'O valor minimo deve ser igual ao maximo '
+        mensagem.textContent = 'O valor minimo deve ser menor que o maximo '
         return
     }
     mensagem.textContent = '';
